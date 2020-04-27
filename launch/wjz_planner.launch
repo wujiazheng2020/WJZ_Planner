@@ -1,0 +1,4 @@
+<launch>
+        <node pkg="WJZ_Planner" type="WJZ_Planner" name="WJZ_Planner" output="screen">
+	</node>
+</launch>
