@@ -6,20 +6,21 @@ Overview: The open source robot planning collection library, because I wrote it 
 163：wujiazheng2020@163.com
 gmail: wujiazheng2020@gmail.com
 QQ群：710805413
-#Dependece
+# Dependece
 1.pcl: 一般ubuntu自带(ubuntu installed already)
 2.ros: 为了可视化(just for visualization)
 3.eigen3: 一般ubuntu自带(ubuntu installed already)
 
-#contents:
-##1.Global Planner
-###1.1 Dijkstra
-###1.2 A Star
-###1.3 RPM
-###1.4 RRT
-###1.5 RRT Star
-###1.6 Sweep Robot Planner
-##2.Local Planner
-###2.1 Dwa
-###2.2 State Lattice
-###2.3 Reeds Shepp
+# contents:
+## 1.Global Planner
+### 1.1 Dijkstra
+### 1.2 A Star
+### 1.3 RPM
+### 1.4 RRT
+### 1.5 RRT Star
+### 1.6 Sweep Robot Planner
+## 2.Local Planner
+### 2.1 Dwa
+### 2.2 State Lattice
+### 2.3 Reeds Shepp
+### 2.4 Cubic Spline
