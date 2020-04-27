@@ -16,12 +16,21 @@ QQ群：710805413
 ### 1.1 Dijkstra
 ![Dijkstra](https://github.com/wujiazheng2020/WJZ_Planner/blob/master/picture/Dijkstra.png)
 ### 1.2 A Star
+![A Star](https://github.com/wujiazheng2020/WJZ_Planner/blob/master/picture/A_Star.png)
 ### 1.3 RPM
+![RPM](https://github.com/wujiazheng2020/WJZ_Planner/blob/master/picture/RPM.png)
 ### 1.4 RRT
+![RRT](https://github.com/wujiazheng2020/WJZ_Planner/blob/master/picture/RRT.png)
 ### 1.5 RRT Star
+![RRT Star](https://github.com/wujiazheng2020/WJZ_Planner/blob/master/picture/RRT_Star.png)
 ### 1.6 Sweep Robot Planner
+![Sweep](https://github.com/wujiazheng2020/WJZ_Planner/blob/master/picture/Sweep.png)
 ## 2.Local Planner
 ### 2.1 Dwa
+![Dwa](https://github.com/wujiazheng2020/WJZ_Planner/blob/master/picture/Dwa.png)
 ### 2.2 State Lattice
+![State](https://github.com/wujiazheng2020/WJZ_Planner/blob/master/picture/State_Lattice.png)
 ### 2.3 Reeds Shepp
+![Reeds](https://github.com/wujiazheng2020/WJZ_Planner/blob/master/picture/Reeds_Shepp.png)
 ### 2.4 Cubic Spline
+![Cubic](https://github.com/wujiazheng2020/WJZ_Planner/blob/master/picture/Cubic_Spline.png)
