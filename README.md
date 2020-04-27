@@ -14,6 +14,7 @@ QQ群：710805413
 # contents:
 ## 1.Global Planner
 ### 1.1 Dijkstra
+![Dijkstra](https://github.com/wujiazheng2020/WJZ_Planner/blob/master/picture/Dijkstra.png)
 ### 1.2 A Star
 ### 1.3 RPM
 ### 1.4 RRT
