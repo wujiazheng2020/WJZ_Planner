@@ -42,7 +42,6 @@ namespace wjz_planner {
         while(dyaw > TT){
             dyaw -= 2*TT;
         }
-        printf("yaw2:%f,%f\n",yaw1,yaw2);
         return dyaw;
     }
 
