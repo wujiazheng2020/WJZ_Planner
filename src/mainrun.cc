@@ -110,7 +110,7 @@ namespace wjz_planner {
         nav_msgs::Path local_path;
         std::vector<Pose_6d> path_local;
         //6.1 for all local planner
-        plan_param.plan_mode = State_Lattice;
+        plan_param.plan_mode = Reeds_Shepp;
         plan_param.init_index = 0;
         plan_param.end_index = 50;
         //6.2 for Dwa

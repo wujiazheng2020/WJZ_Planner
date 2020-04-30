@@ -1755,7 +1755,7 @@ namespace wjz_planner {
         R8 tmp_dis;
         U4 min_i=0;
         for(U4 i = param.init_index;i<=param.end_index;i++){
-            tmp_dis = (init_pose.x - refer_line[i].x)*(init_pose.x - refer_line[i].x) -
+            tmp_dis = (init_pose.x - refer_line[i].x)*(init_pose.x - refer_line[i].x) +
                       (init_pose.y - refer_line[i].y)*(init_pose.y - refer_line[i].y) ;
             if(tmp_dis < min_dis){
                 min_dis = tmp_dis;
@@ -1769,8 +1769,8 @@ namespace wjz_planner {
         Pose_6d frenet_now_pose;
         R8 v_dis; //vertical dis
         R8 ds;
-        R8 l = param.path_v*param.path_dt;
-        U4 sub_i,low_i;
+        R8 l;
+        U4 sub_i,low_i,high_i;
         if(min_i == 0 || min_i == line_size-1){
             path_get.push_back(init_pose);
             return path_get;
@@ -1779,14 +1779,20 @@ namespace wjz_planner {
             R8 dl,ul;
             R8 cosA;
             R8 sinA;
-            up_dis = (init_pose.x - refer_line[min_i+1].x)*(init_pose.x - refer_line[min_i+1].x) -
+            up_dis = (init_pose.x - refer_line[min_i+1].x)*(init_pose.x - refer_line[min_i+1].x) +
                      (init_pose.y - refer_line[min_i+1].y)*(init_pose.y - refer_line[min_i+1].y) ;
-            down_dis = (init_pose.x - refer_line[min_i-1].x)*(init_pose.x - refer_line[min_i-1].x) -
+            down_dis = (init_pose.x - refer_line[min_i-1].x)*(init_pose.x - refer_line[min_i-1].x) +
                        (init_pose.y - refer_line[min_i-1].y)*(init_pose.y - refer_line[min_i-1].y) ;
-            sub_i = up_dis<down_dis?(min_i+1):(min_i-1);
-            low_i = sub_i<min_i?sub_i:min_i;
+            sub_i  = up_dis<down_dis?(min_i+1):(min_i-1);
+            low_i  = sub_i<min_i?sub_i:min_i;
+            high_i = sub_i<min_i?min_i:sub_i;
             ul = up_dis<down_dis?up_dis:min_dis;
             dl = up_dis<down_dis?min_dis:down_dis;
+            l  = (refer_line[low_i].x - refer_line[high_i].x)*(refer_line[low_i].x - refer_line[high_i].x) +
+                 (refer_line[low_i].y - refer_line[high_i].y)*(refer_line[low_i].y - refer_line[high_i].y) ;
+            ul = sqrt(ul);
+            dl = sqrt(dl);
+            l  = sqrt(l);
             cosA = (l*l + dl*dl - ul*ul)/(2*l*dl);
             sinA = sqrt(1-cosA*cosA);
             v_dis = dl*sinA;
@@ -2039,7 +2045,7 @@ namespace wjz_planner {
         R8 tmp_dis;
         U4 min_i=0;
         for(U4 i = param.init_index;i<=param.end_index;i++){
-            tmp_dis = (init_pose.x - refer_now[i].x)*(init_pose.x - refer_now[i].x) -
+            tmp_dis = (init_pose.x - refer_now[i].x)*(init_pose.x - refer_now[i].x) +
                       (init_pose.y - refer_now[i].y)*(init_pose.y - refer_now[i].y) ;
             if(tmp_dis < min_dis){
                 min_dis = tmp_dis;
@@ -2103,7 +2109,7 @@ namespace wjz_planner {
                 }
                 end_theta = end_theta - stop_pose.yaw;
                 s = (now_pose.y-stop_pose.y)*(now_pose.y-stop_pose.y) +
-                         (now_pose.x-stop_pose.x)*(now_pose.x-stop_pose.x) ;
+                    (now_pose.x-stop_pose.x)*(now_pose.x-stop_pose.x) ;
                 y_bias = s*cos(end_theta);
                 x_bias = fabs(sin(end_theta)*s);
                 if(x_bias >= sx_bias || y_bias < sy_bias){
