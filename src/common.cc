@@ -68,19 +68,23 @@ namespace wjz_planner {
     R8 get_angle(R8 y1,R8 x1,R8 y0,R8 x0){
         R8 dy = y1-y0;
         R8 dx = x1-x0;
-        R8 th = atan(dy/dx);
         R8 angle = 0;
-        if(dy >= 0 && dx >= 0){
-            angle = th;
-        }
-        if(dy >= 0 && dx < 0){
-            angle = TT + th;
-        }
-        if(dy < 0 && dx < 0){
-            angle = TT + th;
-        }
-        if(dy < 0 && dx >= 0){
-            angle = 2*TT + th;
+        if(dx == 0){
+            angle = dy>0?1.57:-1.57;
+        } else {
+            R8 th = atan(dy/dx);
+            if(dy >= 0 && dx >= 0){
+                angle = th;
+            }
+            if(dy >= 0 && dx < 0){
+                angle = TT + th;
+            }
+            if(dy < 0 && dx < 0){
+                angle = TT + th;
+            }
+            if(dy < 0 && dx >= 0){
+                angle = 2*TT + th;
+            }
         }
         return angle;
     }
