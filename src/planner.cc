@@ -213,14 +213,13 @@ namespace wjz_planner {
 //        sx.set_points(t,x);
 //        sy.set_points(t,y);
 //
-//        std::vector<Pose_6d> path_get;
+        std::vector<Pose_6d> path_get;
 //        Pose_6d tmp_pose;
 //        for(R8 t1 = 0;t1<refer_line.size();t1+=0.01){
 //            tmp_pose.x = sx(t1);
 //            tmp_pose.y = sy(t1);
 //            path_get.push_back(tmp_pose);
 //        }
-        std::vector<Pose_6d> path_get;
         return path_get;
     }
 
@@ -955,8 +954,7 @@ namespace wjz_planner {
                     theta = -1.5707963;
                 }
             }else{
-                k = (R8)(y1-y0)/(x1-x0);
-                theta = atan(k);
+                theta = get_angle(y1,x1,y0,x0);
             }
             swap_x = false;
 
@@ -1201,8 +1199,7 @@ namespace wjz_planner {
                     theta = -1.5707963;
                 }
             }else{
-                k = (R8)(y1-y0)/(x1-x0);
-                theta = atan(k);
+                theta = get_angle(y1,x1,y0,x0);
             }
             swap_x = false;
 
@@ -1798,7 +1795,7 @@ namespace wjz_planner {
             frenet_orgin.x = refer_line[low_i].x + ds*cos(frenet_orgin.yaw);
             frenet_orgin.y = refer_line[low_i].y + ds*sin(frenet_orgin.yaw);
 
-            R8 to_yaw = atan((refer_line[low_i].y-init_pose.y)/(refer_line[low_i].x-init_pose.x));
+            R8 to_yaw = get_angle(refer_line[low_i].y,refer_line[low_i].x,init_pose.y,init_pose.x);
             to_yaw = yaw_sub(to_yaw,refer_line[low_i].yaw);
             if( (to_yaw>=0 && to_yaw<TT) ){
                 v_dis = -v_dis;
@@ -2058,7 +2055,7 @@ namespace wjz_planner {
         Pose_6d now_pose;
         Pose_6d stop_pose = param.stop_pose;
         //2.1 judege steer direction
-        R8 to_yaw = atan((stop_pose.y-init_pose.y)/(stop_pose.x-init_pose.x));
+        R8 to_yaw = get_angle(stop_pose.y,stop_pose.x,init_pose.y,init_pose.x);
         to_yaw = yaw_sub(to_yaw,init_pose.yaw);
         if( !(to_yaw>=0 && to_yaw<TT) ){
             steer = -steer;
@@ -2102,7 +2099,7 @@ namespace wjz_planner {
                 if(now_pose.x == stop_pose.x){
                     end_theta = now_pose.y>stop_pose.y?1.57:-1.57;
                 } else {
-                    end_theta = atan((now_pose.y-stop_pose.y)/(now_pose.x-stop_pose.x));
+                    end_theta = get_angle(now_pose.y,now_pose.x,stop_pose.y,stop_pose.x);
                 }
                 end_theta = end_theta - stop_pose.yaw;
                 s = (now_pose.y-stop_pose.y)*(now_pose.y-stop_pose.y) +

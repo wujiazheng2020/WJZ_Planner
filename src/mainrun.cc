@@ -46,10 +46,10 @@ namespace wjz_planner {
         //3.init global planner param
         Plan_Param plan_param;
         //3.1 for all
-        plan_param.plan_mode = Dijkstra;  //Dijkstra,A_Star,RPM,RRT,RRT_Star,Sweep
+        plan_param.plan_mode = Map_Refer;  //Dijkstra,A_Star,RPM,RRT,RRT_Star,Sweep
         plan_param.obstacle_prob = 5;      //0-100, bigger than this number is obstacle
-        plan_param.reduce_scale = 1;       //Reduce resolution scale
-        plan_param.use_local_plan = false; //whether use local plan
+        plan_param.reduce_scale = 2;       //Reduce resolution scale
+        plan_param.use_local_plan = true; //whether use local plan
         //3.2 for Dijkstra, RPM
         //none
         //3.3 for A_Star, RPM

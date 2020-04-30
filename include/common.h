@@ -29,6 +29,8 @@
 #include "special_define.h"
 #include "nav_msgs/OccupancyGrid.h"
 
+#define DEG2RAD(X) X*3.1415926/180
+
 namespace wjz_planner {
 
     class Pose_6d{
@@ -43,6 +45,12 @@ namespace wjz_planner {
         R8 w;   //rad/s
         R8 a;   //m/s2
     };
+
+    //0.auxiliary functions
+    R8 yaw_sub(R8 yaw1,R8 yaw2);
+    R8 yaw_add(R8 yaw1,R8 yaw2);
+    R8 get_angle(R8 y1,R8 x1,R8 y0,R8 x0);
+    R8 ENU2RC(R8 yaw);//ENU axis to Rectangular Coordinates
 }
 
 #endif //WJZ_PLANNER_COMMON_H
