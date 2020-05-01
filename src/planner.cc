@@ -201,6 +201,7 @@ namespace wjz_planner {
     }
 
     std::vector<Pose_6d> Planner::Cubic_Spline(std::vector<Pose_6d> &refer_line){
+    ////git clone spline.h from tk
 //        tk::spline sx,sy;
 //        std::vector<R8> t;
 //        std::vector<R8> x;
