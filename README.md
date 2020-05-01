@@ -13,6 +13,9 @@ QQ群：710805413</br>
 2.ros: 为了可视化(just for visualization)</br>
 3.eigen3: 一般ubuntu自带(ubuntu installed already)</br>
 
+4.spline.h:just for cubic spline,if you no need cubic spline,no downloads,page:
+           https://github.com/ttk592/spline,and you can delete '//'
+
 # contents:
 ## 1.Global Planner
 ### 1.1 Dijkstra
