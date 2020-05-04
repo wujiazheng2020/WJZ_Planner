@@ -14,9 +14,14 @@ QQ群：710805413</br>
 3.eigen3: 一般ubuntu自带(ubuntu installed already)</br>
 
 4.spline.h:just for cubic spline,if you no need cubic spline,no downloads,page:
-           https://github.com/ttk592/spline,and you can delete '//'
+           https://github.com/ttk592/spline,and you can delete '//' 
+           it achieve spline in single dimension, i achieve in two dimension
 
-# contents:
+# Highlights
+1.provide 6 global planner and 4 local planner for using.</br>
+2.you can change param for each algorithm easily at mainrun.cc.</br>
+
+# Contents
 ## 1.Global Planner
 ### 1.1 Dijkstra
 ![Dijkstra](https://github.com/wujiazheng2020/WJZ_Planner/blob/master/picture/Dijkstra.png)
