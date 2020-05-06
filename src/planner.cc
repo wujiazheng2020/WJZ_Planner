@@ -156,50 +156,6 @@ namespace wjz_planner {
         return refer_now;
     }
 
-    R8 Planner::yaw_sub(R8 yaw1,R8 yaw2){
-        R8 dyaw;
-        while(yaw1 >= 2*TT){
-            yaw1 -= 2*TT;
-        }
-        while(yaw1 < 0){
-            yaw1 += 2*TT;
-        }
-        while(yaw2 >= 2*TT){
-            yaw2 -= 2*TT;
-        }
-        while(yaw2 < 0){
-            yaw2 += 2*TT;
-        }
-
-        dyaw = yaw1 - yaw2;
-        if(dyaw < -TT){
-            dyaw += 2*TT;
-        } else if(dyaw > TT){
-            dyaw -= 2*TT;
-        }
-        return dyaw;
-    }
-
-    R8 Planner::yaw_add(R8 yaw1,R8 yaw2){
-        R8 ayaw;
-        while(yaw1 >= 2*TT){
-            yaw1 -= 2*TT;
-        }
-        while(yaw1 < 0){
-            yaw1 += 2*TT;
-        }
-        while(yaw2 >= 2*TT){
-            yaw2 -= 2*TT;
-        }
-        while(yaw2 < 0){
-            yaw2 += 2*TT;
-        }
-
-        ayaw = yaw1 + yaw2;
-        ayaw = ayaw>=2*TT?(ayaw-2*TT):ayaw;
-        return ayaw;
-    }
-
     std::vector<Pose_6d> Planner::Cubic_Spline(std::vector<Pose_6d> &refer_line){
     ////git clone spline.h from tk
 //        tk::spline sx,sy;

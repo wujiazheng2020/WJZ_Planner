@@ -149,8 +149,7 @@ namespace wjz_planner {
         R8 GetDistance(I4 x1,I4 y1,I4 x2,I4 y2,X1 mode, X1 i_w);
         void Reduce_Resolution(nav_msgs::OccupancyGrid &map_before,nav_msgs::OccupancyGrid &map_now,U4 scale);
         std::vector<Pose_6d> Linear_Interpolation(std::vector<Pose_6d> &refer_line,U4 scale);
-        R8 yaw_sub(R8 yaw1,R8 yaw2);
-        R8 yaw_add(R8 yaw1,R8 yaw2);
+       
         //for usage git clone spline.h
         std::vector<Pose_6d> Cubic_Spline(std::vector<Pose_6d> &refer_line);
 
